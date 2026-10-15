@@ -52,6 +52,20 @@ that way in the library; real content lives in each exemplar's own folder.)
   substance = new row.
 - All tables accept row IDs referenced elsewhere by ID only.
 
+## Spec altitude rule (owner policy, 2026-10-15)
+
+The majority of effort/complexity lives in the **logic, API, and data
+layers** — spec those completely. UI is rendered detail: with an excellent
+foundation, AI builds frontends cheaply (skeletons → themes → components).
+Therefore:
+
+- **Every spec**: full fidelity on domain logic, API, data, invariants,
+  failure modes. Always.
+- **UI in specs**: include specifics **only** when the reference system has
+  an excellent foundation *and* excellent UI (screens worth copying as
+  patterns). Otherwise stay reasonably vague (surfaces + flows, no styling).
+- UI specifics never gate verification — foundational behavior does.
+
 ## View projections (generated, not maintained)
 
 Any of the tables can render a diagram on demand:

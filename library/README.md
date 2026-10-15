@@ -12,6 +12,10 @@ Qualification rules:
 - The system must be **working, open-source, publicly documented** — specs are
   written from real behavior (running the code, reading its schema), not
   marketing pages.
+- **Spec altitude (owner policy 2026-10-15)**: full fidelity on logic/API/data
+  layers always; UI specifics only when the reference system's UI is itself
+  excellent — otherwise surfaces + flows, vague on UI (Snipe-IT: solid
+  foundation, dated UI → spec stays foundational).
 - **No private/proprietary projects** (owner's rule, 2026-10-15).
 - Each exemplar folder = the full table set from
   `requirements/spec-template.md`, plus a one-screen `summary.md` (what the
