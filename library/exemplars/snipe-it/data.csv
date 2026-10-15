@@ -1,7 +1,7 @@
 id,entity,fields,relationships,invariants
 D-01,Asset,"tag:unique; asset_model_id; status_id; assigned_to:polymorphic(user|location); company_id; purchase_date/cost; warranty_months; requestable:bool; last_audit_date; custom_field_values","N:1 AssetModel; N:1 StatusLabel; N:1 Company; N:1 Location(physical)","one active assignment at a time; tag unique per company scope"
 D-02,AssetModel,"name; manufacturer_id; category_id; fieldset_id; deprecated:bool","1:N Assets","category determines the custom-field contract"
-D-03,Category,"name; category_type(hardware/accessory/component/consumable/license); eula_text; fieldset_id?","1:N Models","type gates what may attach"
+D-03,Category,"name; category_type(asset/accessory/component/consumable/license); eula_text; fieldset_id?","1:N Models","type gates what may attach (verified: 'hardware' rejected — the asset type is named 'asset')"
 D-04,Manufacturer,"name; url/support/warranty contacts","1:N Models","—"
 D-05,Supplier,"name; contact","N:M Assets (purchase source)","—"
 D-06,Location,"name; parent_id; manager_id; address","self N:1; 1:N Assets(physical)","hierarchical; cycle guard"

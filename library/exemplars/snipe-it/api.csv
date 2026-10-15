@@ -1,16 +1,20 @@
 id,route,method,auth,notes,errors,side-effects
-API-01,/api/v1/hardware,GET,apikey/pat,"list/search assets, filters(status,company,category)",401|429,pagination payload
-API-02,/api/v1/hardware,POST,apikey,"create asset(tag unique enforced)",400|409-dup,audit log
-API-03,/api/v1/hardware/{id}/checkout,POST,apikey,"{assigned_user|assigned_location, expected_checkin, note}","400 invalid target|409 not deployable",webhook + notification
+API-01,/api/v1/hardware,GET,apikey/pat,"list/search assets, filters(status,company,category)",401|429; see ERR envelope note,pagination payload
+API-02,/api/v1/hardware,POST,apikey,"create asset(tag unique enforced)",200+ERR envelope on dup tag (verified 2026-10-16),audit log
+API-03,/api/v1/hardware/{id}/checkout,POST,apikey,"{assigned_user|assigned_location, expected_checkin, note}","200+ERR envelope: not deployable / invalid target (verified)",webhook + notification
 API-04,/api/v1/hardware/{id}/checkin,POST,apikey,"{note, status_at_checkin?}","400|409 never out",webhook + notification
 API-05,/api/v1/hardware/{id}/audit,POST,apikey,"audit note / legacy physical audit",400,sets last_audit_date
 API-06,/api/v1/users,GET/POST,apikey,"list/create; company scope respected",400|401,
 API-07,/api/v1/locations,GET/POST,apikey,"hierarchical locations",400,
 API-08,/api/v1/statuslabels,GET/POST,apikey,"user-defined labels + meta-types",400,
-API-09,/api/v1/licenses + /{id}/seats,GET/POST,apikey,"seat checkout mirrors hardware checkout","409 no free seat",seat accounting
+API-09,/api/v1/licenses + /{id}/seats,GET/POST,apikey,"checkout via /licenses/{id}/checkout {assigned_to, target_type:user} — target_type REQUIRED (verified)","200+ERR envelope: not enough seats",seat accounting
 API-10,/api/v1/accessories/{id}/checkout,POST,apikey,"to user","400|409 no stock",stock row
-API-11,/api/v1/consumables/{id}/checkout,POST,apikey,"{user, qty}","409 qty > remaining",stock decrement — never negative
+API-11,/api/v1/consumables/{id}/checkout,POST,apikey,"{assigned_to, qty:IGNORED} — one call = ONE unit (verified; qty field silently ignored)","200+ERR envelope: not enough consumables",unit-by-unit stock decrement — never negative
 API-12,/api/v1/components/{id}/checkout,POST,apikey,"to ASSET","409 qty > remaining",install accounting
 API-13,/api/v1/maintenances,GET/POST,apikey,"asset maintenance records",400,
 API-14,/api/v1/imports,POST,apikey,"CSV ingest,error-batched response",400 malformed file,import row with per-row errors
 API-15,/api/v1/reports/{kind},GET,apikey,"activity, depreciation, custom asset reports",404 unknown kind,
+
+# V-08 ERR envelope note (verified 2026-10-16): validation and business-rule
+# rejections return HTTP 200 + {"status":"error","messages":{...}} — NOT 4xx.
+# Integrators must read the envelope, never trust the status code alone.

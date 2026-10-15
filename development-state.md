@@ -28,9 +28,20 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   rows, 6 decisions) — `documented` status; run-verification pending (V-08)
   per the exemplar honesty rule. Q-A resolved: Snipe-IT first; Odoo later.
 
+- [built] Batch 4 — Snipe-IT run-verification (the skill's own rules used for
+  real): podman stack (MariaDB + snipe-it), first-run wizard automation
+  (migrate → /setup/user; the 405-after-create quirk recorded), Sanctum PAT
+  minted via artisan tinker when web login fought back (pivot per stop
+  rules), **V-01…V-05 all PASS with evidence**; V-08 reconciliation folded
+  4 discoveries into the exemplar: ERR-envelope semantics (HTTP 200 +
+  {status:error} on rejections), category_type `asset` (not `hardware`),
+  consumable `qty` field ignored (1 call = 1 unit), license checkout needs
+  `target_type`. V-06/V-07 pending (company-mode toggle; CSV multipart).
+  Harness: `evaluation/{launch-snipeit.sh, setup-snipeit.py,
+  verify-snipeit.py}` — reusable for any future run. Foundation-first spec
+  altitude policy (owner, 2026-10-15) encoded.
+
 ## Next (in order)
-- [next] Snipe-IT run-verification: spin the docker image, execute V-01…V-07,
-  reconcile spec rows against reality (V-08) — rows graduate to `verified`.
 - [next] Multi-agent orchestration dry run: two sub-agents + manager on a
   toy build, exercising scope honoring, branch registry, attempt ledger,
   escalation. First live spawn-profile use (cheap model on mechanical work).

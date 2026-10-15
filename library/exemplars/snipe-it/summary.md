@@ -13,10 +13,12 @@ consumable stock decrement; user-defined status labels that still have to
 behave (meta-types: deployable/pending/archived/lost); per-company data
 isolation; custom fields per category; a full REST API.
 
-**Spec status**: `documented` — written from public docs/API reference
-(v7/v8 era), NOT yet run-verified against a live instance (that is
-`verification.csv`'s pending work; the exemplar rules require running the
-system before rows graduate to `verified`).
+**Spec status**: `run-verified 2026-10-16` (V-01…V-05 executed against a
+live docker instance — see `verification.csv`; V-06/V-07 pending: company-mode
+toggle + CSV multipart). Discoveries folded in: ERR-envelope semantics
+(HTTP 200 + {status:error} on rejections), category_type `asset` (not
+`hardware`), consumable qty ignored (1 call = 1 unit), license checkout needs
+`target_type`.
 
 **Files** (spec-template tables): requirements.csv · components.csv ·
 data.csv · flows.md · states.csv · api.csv · failure-modes.csv ·

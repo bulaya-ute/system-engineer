@@ -5,3 +5,6 @@ DEC-3,companies as optional tenancy wall,no companies|FULL company scoping,depar
 DEC-4,custom fields as fieldsets per category,wide table|JSON column|EAV,category-typed contracts without schema surgery,revisit if field-querying becomes heavy
 DEC-5,asset tag as user-facing identity,UUID primary|auto-increment exposed,operators read tags off hardware; tags print on labels,never — battle-tested
 DEC-6,API mirrors web surface 1:1,thin API|full mirror,automation-first admins; parity keeps examples transferable,revisit on surface divergence
+DEC-7,error envelope over status codes,4xx codes|200+envelope,envelope keeps legacy clients stable; integrators must parse it — recorded for API-mirroring systems,verified 2026-10-16
+DEC-8,consumable checkout = one unit per call (qty field ignored),multi-qty checkout|loop units,unit rows keep pivot history simple; multi-qty would need row math,verified 2026-10-16
+DEC-9,license checkout requires explicit target_type,implicit default|explicit field,explicit beats implicit on a polymorphic target (user|location|asset),verified 2026-10-16
