@@ -17,8 +17,10 @@ Qualification rules:
   `requirements/spec-template.md`, plus a one-screen `summary.md` (what the
   system is, who it serves, what makes it hard).
 
-Candidates (unstarted): `snipe-it/` (asset management — lean: start here),
-`odoo-erp/` (huge: domain chunks only), `frappe/`.
+Candidates: `snipe-it/` — **STARTED (batch 3): written from documented
+behavior, `documented` status, run-verification pending
+(`exemplars/snipe-it/verification.csv` V-08)**; `odoo-erp/` (huge: domain
+chunks only); `frappe/`.
 
 ## untested/ — system classes awaiting their first real build
 

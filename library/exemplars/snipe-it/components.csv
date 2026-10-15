@@ -1,0 +1,11 @@
+id,name,kind,responsibility,talks-to,owns
+C-01,Web app (Laravel),surface,all admin/user screens incl. checkout/checkin/reporting,,API-ROUTES|C-02
+C-02,REST API v1,surface,/api/v1 surface mirrored from web actions,C-01,API-TOKENS
+C-03,MySQL store,store,all entities + EAV custom fields,ALL,
+C-04,AuthN services,lib,local/LDAP/SAML login + API key/PAT issuing,C-01|C-02,
+C-05,Scheduler (cron),job,backups, alert digests (expiring warranties/licenses, overdue checkins),C-03|C-08,
+C-06,Importer,job,CSV ingest with row-level error batching,C-03,
+C-07,Label generator,lib,asset tag/label sheets (PDF/labels),C-03,
+C-08,Mailer,lib,notifications + digests,ALL,
+C-09,Webhooks dispatcher,lib,fired on checkout/checkin/etc.,C-02|C-03,
+C-10,Settings store,store,app config incl. full_multi_company_support,labels on assets? no—owns SETTINGS,

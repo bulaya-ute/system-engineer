@@ -1,0 +1,8 @@
+id,failure,detection,blast-radius,mitigation,retry-policy
+F-01,double-checkout race on one asset,assignment invariant + 409 responses,one asset double-assigned (real-world confusion),re-check state in the checkout transaction (DB constraint or row lock),never blind-retry — user decides
+F-02,consumable oversell under concurrent checkouts,qty≥0 invariant,broken stock count,atomic decrement (conditional UPDATE),no retry
+F-03,license seat over-checkout,seats_out ≤ seats_total guard,compliance exposure,check-then-set in one transaction; audit seats periodically,manual reconcile
+F-04,LDAP/SAML outage locks out admins,inbound auth errors,whole team locked (if no local admins),keep ≥1 local admin; auth fallback setting,n/a
+F-05,backup silently failing (disk full, bad cron),backup file freshness check,catastrophic: data loss discovered late,monitor backup age + alert; test restores,n/a
+F-06,import partial failure mid-file,error-batched import rows,confusion about what landed,imports are row-batched; processed/errored reported — never re-run blindly,admin reviews errors then re-runs failed rows
+F-07,custom-field contract drift (category fieldset changed late),fieldset→category→asset validation,legacy assets missing required fields,validate on edit; batch-fix tooling for legacy,n/a

@@ -15,17 +15,31 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   stale→inferred, drop-with-reason), spec-template v1.1 (example rows per
   table, row lifecycle: proposed→accepted→building→verified→dropped,
   discovered-row rules).
+- [built] Batch 2.5 — elicitation techniques: `requirements/techniques/catalog.md`
+  (12 technique families, selection heuristics, composition rules),
+  `techniques/interactive-skeleton.md` (owner-proposed technique: domain
+  inference → unstyled one-file HTML skeleton w/ mock data + feedback modals
+  + JSON export; fold-back rules; strong/cheap model split),
+  `orchestration/spawn-profiles.md` (task-class → model tier + brief gates).
+- [built] Batch 3 — library router (`library/_router.md`) + exemplar #1
+  **Snipe-IT** (`library/exemplars/snipe-it/`): full table set (18
+  requirements, 10 components, 18 entities, 7 flows, state tables incl.
+  status-label meta-types, 15 API rows, 7 failure modes, 8 verification
+  rows, 6 decisions) — `documented` status; run-verification pending (V-08)
+  per the exemplar honesty rule. Q-A resolved: Snipe-IT first; Odoo later.
 
 ## Next (in order)
-- [next] Library router manifest (`library/_router.md`) + first exemplar
-  spec written from an **open-source** system (candidates: Snipe-IT, Odoo,
-  Frappe) — validates the information-first "diagram" formats.
+- [next] Snipe-IT run-verification: spin the docker image, execute V-01…V-07,
+  reconcile spec rows against reality (V-08) — rows graduate to `verified`.
 - [next] Multi-agent orchestration dry run: two sub-agents + manager on a
   toy build, exercising scope honoring, branch registry, attempt ledger,
-  escalation.
-- [next] Theme-library interactivity upgrade (in `ui-ux-audit` repo, first
-  exercise run by this skill): animated sidebar collapse, FLIP-animated
-  table rows, live search/add/remove, real modals — per approved outline.
+  escalation. First live spawn-profile use (cheap model on mechanical work).
+- [next] Interactive-skeleton first live run (the security-escort example or
+  an owner project): strong model brief → cheap-model skeleton → session →
+  fold-back; validates the technique end-to-end.
+- [next] Theme-library interactivity upgrade (in `ui-ux-audit` repo): animated
+  sidebar collapse, FLIP-animated table rows, live search/add/remove, real
+  modals — per approved outline.
 
 ## Untested system classes (spec stubs exist only when marked)
 - [untested] Fleet tracking / management

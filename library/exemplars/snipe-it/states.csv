@@ -1,0 +1,16 @@
+entity,state,entry-actions,allowed-transitions(to:guard),exit-actions
+Asset,available(default deployable label),—,checkout(target chosen)|requestable toggle|archive|mark lost,
+Asset,requested,user request row created,approve→checkout|cancel request,user notified either way
+Asset,checked_out,assignment written;user notified,checkin|mark lost(on audit),webhook fires both ways
+Asset,archived,—,restore(deployable),hidden from default lists
+Asset,lost(audit outcome),—,restore|archive,shrinkage reportable
+Asset,deleted(delete-status label),—,restore(undocumented-ish admin path),excluded from totals
+StatusLabel,deployable(gate:checkout allowed),—,meta-type never edits per-asset;assets move labels,
+StatusLabel,pending(auditable,not checkout-able),—,—,
+StatusLabel,archived(read-only-ish),—,—,
+StatusLabel,lost,—,—,
+Consumable,in_stock(qty>0),—,decrement on checkout:qty>0 guard,out_of_stock blocked checkout
+Consumable,out_of_stock(qty=0),—,restock(admin increments),checkout blocked with reason
+LicenseSeat,free,seat counted available,checkout(user),—
+LicenseSeat,held,seat assigned to user,reassign(reassignable flag)|free on checkin,—
+Company(tenancy mode FULL),member entity created with company_id,scope filter applied everywhere,leave mode → data remains company-scoped historical,queries filtered silently

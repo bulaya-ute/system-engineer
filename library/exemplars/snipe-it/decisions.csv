@@ -1,0 +1,7 @@
+id,decision,alternatives-considered,chosen-because,revisited?
+DEC-1,polymorphic assigned_to (user|location),separate target tables|polymorphic column,checkout semantics identical for both targets; one flow,revisit if a third target type appears
+DEC-2,user-defined status labels + fixed meta-types,fixed status enum|free-form labels,users want their own names/colors; system needs behavioral gating — meta-types carry behavior,revisit if meta-set grows
+DEC-3,companies as optional tenancy wall,no companies|FULL company scoping,departments sharing an instance vs tenants needing isolation both exist,revisit per deployment
+DEC-4,custom fields as fieldsets per category,wide table|JSON column|EAV,category-typed contracts without schema surgery,revisit if field-querying becomes heavy
+DEC-5,asset tag as user-facing identity,UUID primary|auto-increment exposed,operators read tags off hardware; tags print on labels,never — battle-tested
+DEC-6,API mirrors web surface 1:1,thin API|full mirror,automation-first admins; parity keeps examples transferable,revisit on surface divergence

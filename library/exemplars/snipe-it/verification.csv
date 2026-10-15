@@ -1,0 +1,9 @@
+id,claim,check,how-to-run,pass-criteria,status
+V-01,checkout→checkin lifecycle round-trips,api smoke,spin docker image; POST hardware; checkout; checkin,statuses flip; 200/200; webhook fired,pending-run
+V-02,asset tag uniqueness enforced,api smoke,create duplicate tag → expect rejection,409/422 — no duplicate row,pending-run
+V-03,consumable qty never negative,concurrency,parallel checkout qty=remaining,exactly one succeeds; qty=0; never −1,pending-run
+V-04,license seats never oversold,concurrency,parallel seat checkout to N+1 users,last one blocked; seats_out == total,pending-run
+V-05,status label meta-types gate checkout,api smoke,checkout a pending/archived-labeled asset → blocked,409 with reason,pending-run
+V-06,FULL company mode isolates cross-company reads,api smoke,company-B key reads company-A asset → absent,not listed; direct GET → 404/403,pending-run
+V-07,imports are error-batched,api smoke,upload CSV with 1 bad row,good rows land; errors[] explains bad; counts match,pending-run
+V-08,spec's documented rows match live behavior,docs-vs-run diff,"run V-01..V-07; diff results vs this spec; fix rows or code",no undocumented divergence remains,pending-run
