@@ -7,11 +7,16 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
 ## Built
 - [built] Repo skeleton: SKILL.md, orchestration + requirements + library
   scaffolding, per-agent memory convention, branch registry, dev board.
+- [built] Batch 2 — requirements machinery: full question bank v1 (11
+  sections, 60+ IDed questions with why/skip columns + standing during-build
+  set), intake procedure (adaptive selection, ≤15/session, recording into
+  spec tables, during-construction mini-intakes, stop conditions),
+  open-questions machinery (CSV lifecycle: blocking rules, fold-into-spec,
+  stale→inferred, drop-with-reason), spec-template v1.1 (example rows per
+  table, row lifecycle: proposed→accepted→building→verified→dropped,
+  discovered-row rules).
 
 ## Next (in order)
-- [next] `requirements/question-bank.md` full intake set (phase-grouped).
-- [next] `requirements/spec-template.md` table schemas (requirements,
-  components, data, flows, states, failure modes, verification).
 - [next] Library router manifest (`library/_router.md`) + first exemplar
   spec written from an **open-source** system (candidates: Snipe-IT, Odoo,
   Frappe) — validates the information-first "diagram" formats.

@@ -16,6 +16,42 @@ tables are the truth; a diagram is a projection, never the source.
 - `verification.csv` — `id, claim, check(kind), how-to-run, pass-criteria`
 - `decisions.csv` — `id, decision, alternatives-considered, chosen-because, revisited?`
 
+## Example rows (one each — shape is the contract)
+
+```csv
+# requirements.csv
+R-14,Passengers can book on behalf of non-account guests,Guest riders are common in shared minivans,QB-C06,user,verified,"POST /api/bookings {isOnBehalf:true, behalfName, behalfPhone} returns guest ride-code",
+# components.csv
+C-03,BookingService,service,Owns atomic seat commitment (SELECT..FOR UPDATE),,ITINERARY_STORE|FARE_SVC,
+# data.csv
+D-02,Booking,`id:uuid; itineraryId:uuid; boardingStopId:uuid; status:enum(confirmed|waitlisted|cancelled)`,`Itinerary 1:N`,never double-book a segment,
+# states.csv
+Itinerary,draft,created,publish(admin)|cancel,shows to admins only,
+# api.csv
+API-11,POST /api/bookings,POST,Passenger,BookingRequest,Booking,{409:segment full|404:unknown stop},waitlist-promotion side effect on cancel,
+# failure-modes.csv
+F-04,Duplicate booking on concurrent submit,seat-count invariant check,one segment double-sold,row-lock the itinerary row in one txn,never auto-retry,
+# verification.csv
+V-03,Concurrent bookings cannot oversell,integration,run SlotEngineConcurrencyTests,0 failures,
+# decisions.csv
+DEC-2,JSON column for itinerary stop list,Route/RouteStop table|JSON array column,ordered simple list; no stop-level joins needed,revisit if per-stop analytics needed,
+```
+
+(Example values are generic shapes, not any real system's — keep exemplars
+that way in the library; real content lives in each exemplar's own folder.)
+
+## Row lifecycle rules
+
+- `requirements.status`: `proposed → accepted → building → verified → dropped`
+  (dropped rows stay visible with a reason — never deleted).
+- `source:inferred` rows must be **reviewed at a check-in before the phase
+  that depends on them** — the intake procedure enforces asking.
+- `source:discovered` rows arrive mid-build (observation or realization);
+  the affected `inferred` rows flip to `dropped` with the discovered row's ID
+  in their reason. Never silently edit a requirement row's substance — new
+  substance = new row.
+- All tables accept row IDs referenced elsewhere by ID only.
+
 ## View projections (generated, not maintained)
 
 Any of the tables can render a diagram on demand:
@@ -36,3 +72,4 @@ moment — never hand-maintain a diagram that can drift from the tables.
   mid-build findings (never silently absorbed into code alone).
 - Terse cells; narrative only inside `flows.md` steps and `decisions.csv`
   rationale — judgment lives there, facts live in tables.
+
