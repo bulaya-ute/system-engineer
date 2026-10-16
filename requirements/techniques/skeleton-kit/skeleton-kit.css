@@ -1,0 +1,396 @@
+/* skeleton-kit.css v1 — monochrome structural styles only */
+
+/* ---------- Reset / base ---------- */
+.sk-preview-region,
+.sk-screen,
+.sk-row,
+.sk-column,
+.sk-card,
+.sk-field,
+.sk-list,
+.sk-money-table,
+.sk-tap-target,
+.sk-pin-pad,
+.sk-cockpit,
+.sk-cockpit__modal {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* ---------- Preview region ---------- */
+.sk-preview-region {
+  position: relative;
+  border: 1px solid #999;
+  min-height: 200px;
+  overflow: auto;
+}
+
+/* ---------- Screen ---------- */
+.sk-screen {
+  display: none;
+  padding: 12px;
+}
+
+.sk-screen--column {
+  display: flex;
+  flex-direction: column;
+}
+
+.sk-screen--row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sk-screen--stack {
+  display: block;
+}
+
+.sk-screen--scroll-y {
+  overflow-y: auto;
+}
+
+/* ---------- Row / Column ---------- */
+.sk-row,
+.sk-column {
+  display: flex;
+}
+
+.sk-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sk-column {
+  flex-direction: column;
+}
+
+/* ---------- Text / Heading ---------- */
+.sk-text,
+.sk-heading {
+  margin: 0 0 8px 0;
+}
+
+/* ---------- Button ---------- */
+.sk-button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 0 4px 4px 0;
+  border: 1px solid #666;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.sk-button--primary {
+  border-width: 2px;
+}
+
+.sk-button:hover {
+  background: #eee;
+}
+
+/* ---------- Card ---------- */
+.sk-card {
+  border: 1px solid #999;
+  margin: 0 0 12px 0;
+}
+
+.sk-card__title {
+  border-bottom: 1px solid #999;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+.sk-card__body {
+  padding: 12px;
+}
+
+/* ---------- Field ---------- */
+.sk-field {
+  display: block;
+  margin: 0 0 12px 0;
+}
+
+.sk-field__label {
+  display: block;
+  margin: 0 0 4px 0;
+}
+
+.sk-field__input {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #666;
+}
+
+/* ---------- Pill ---------- */
+.sk-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid #666;
+  margin: 0 4px 4px 0;
+}
+
+/* ---------- Divider ---------- */
+.sk-divider {
+  border: none;
+  border-top: 1px solid #999;
+  margin: 12px 0;
+}
+
+/* ---------- List ---------- */
+.sk-list {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 12px 0;
+}
+
+.sk-list__item {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* ---------- Money Table ---------- */
+.sk-money-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 12px 0;
+}
+
+.sk-money-table th,
+.sk-money-table td {
+  border: 1px solid #999;
+  padding: 6px;
+  text-align: left;
+}
+
+.sk-money-table th {
+  background: #f0f0f0;
+}
+
+.sk-money-table__reversal {
+  margin-left: 8px;
+  padding: 2px 6px;
+  border: 1px solid #666;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ---------- Tap Target ---------- */
+.sk-tap-target {
+  padding: 24px;
+  border: 2px solid #333;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 0 12px 0;
+}
+
+.sk-tap-target:active {
+  background: #eee;
+}
+
+/* ---------- Pin Pad ---------- */
+.sk-pin-pad {
+  border: 1px solid #999;
+  padding: 12px;
+  max-width: 260px;
+}
+
+.sk-pin-pad__attempts {
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.sk-pin-pad__display {
+  border: 1px solid #666;
+  padding: 8px;
+  margin: 0 0 12px 0;
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+.sk-pin-pad__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 12px 0;
+}
+
+.sk-pin-pad__dot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sk-pin-pad__dot--filled {
+  background: #333;
+}
+
+.sk-pin-pad__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.sk-pin-pad__key {
+  padding: 12px;
+  border: 1px solid #666;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ---------- Inspect overlay / outline ---------- */
+.sk-cockpit__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(200, 200, 200, 0.35);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.sk-inspect-outline {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+.sk-cockpit__pin-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.sk-cockpit__pin {
+  position: absolute;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  border: 1px solid #333;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- Cockpit ---------- */
+.sk-cockpit {
+  border: 1px solid #333;
+  padding: 8px;
+  background: #fff;
+}
+
+.sk-cockpit__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 8px 0;
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.sk-cockpit__btn {
+  padding: 6px 12px;
+  border: 1px solid #666;
+  background: #fff;
+  cursor: pointer;
+}
+
+.sk-cockpit__btn--active {
+  border-width: 2px;
+  background: #f0f0f0;
+}
+
+.sk-cockpit__status {
+  color: #333;
+  font-size: 12px;
+}
+
+.sk-cockpit__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 8px 0;
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.sk-cockpit__nav-item {
+  padding: 4px 10px;
+  border: 1px solid #999;
+  background: #fff;
+  cursor: pointer;
+}
+
+.sk-cockpit__nav-item--active {
+  border-width: 2px;
+}
+
+.sk-cockpit__notes {
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.sk-cockpit__note {
+  border-bottom: 1px solid #ddd;
+  padding: 6px 0;
+}
+
+.sk-cockpit__note-address {
+  font-size: 12px;
+  color: #555;
+  margin: 0 0 4px 0;
+}
+
+.sk-cockpit__empty {
+  color: #777;
+  font-style: italic;
+}
+
+/* ---------- Modal ---------- */
+.sk-cockpit__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #333;
+  background: #fff;
+  padding: 16px;
+  z-index: 2000;
+  min-width: 280px;
+}
+
+.sk-cockpit__modal::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(200, 200, 200, 0.5);
+  z-index: -1;
+}
+
+.sk-cockpit__modal-address {
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  word-break: break-all;
+}
+
+.sk-cockpit__modal-text {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #666;
+  padding: 6px;
+  margin: 0 0 12px 0;
+}
+
+.sk-cockpit__modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

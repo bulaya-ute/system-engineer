@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skeleton Kit Demo</title>
+  <link rel="stylesheet" href="skeleton-kit.css">
+</head>
+<body>
+  <div id="app">
+    <sk-cockpit preview-selector=".sk-preview-region"></sk-cockpit>
+    <div class="sk-preview-region">
+      <sk-screen v-show="active === 'Login'" name="Login" layout="column" gap="12px">
+        <sk-heading level="1">Login</sk-heading>
+        <sk-text>Please authenticate with your PIN.</sk-text>
+        <sk-tap-target label="Tap to start" @tap="showPad = true"></sk-tap-target>
+        <sk-pin-pad v-if="showPad" attempts-left="3" pin-length="4" dots @complete="onPinComplete"></sk-pin-pad>
+      </sk-screen>
+
+      <sk-screen v-show="active === 'Home'" name="Home" layout="column" gap="12px">
+        <sk-heading level="1">Home</sk-heading>
+        <sk-text>Recent transactions</sk-text>
+        <sk-money-table :bind="transactions" @reversal="onReversal"></sk-money-table>
+        <sk-button label="Refresh" variant="primary" @click="refresh"></sk-button>
+      </sk-screen>
+
+      <sk-screen v-show="active === 'Admin'" name="Admin" layout="column" gap="12px">
+        <sk-heading level="1">Admin</sk-heading>
+        <sk-text>User list</sk-text>
+        <sk-list :bind="users" cols="2">
+          <template #default="{ item }">
+            <sk-card :title="item.name">
+              <sk-pill :status="item.role">{{ item.role }}</sk-pill>
+            </sk-card>
+          </template>
+        </sk-list>
+      </sk-screen>
+    </div>
+  </div>
+
+  <script src="vue.global.prod.js"></script>
+  <script src="skeleton-kit.js"></script>
+  <script src="cockpit.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const { createApp, ref } = Vue;
+      const { screens, active, register, navigate } = skUseScreens();
+
+      const App = {
+        setup() {
+          const showPad = ref(false);
+          const lastPin = ref('');
+
+          const transactions = ref([
+            { date: '2026-10-01', type: 'Deposit', amount: 'K 500.00', runningBalance: 'K 500.00', refunded: false },
+            { date: '2026-10-05', type: 'Ride', amount: 'K 45.00', runningBalance: 'K 455.00', refunded: false },
+            { date: '2026-10-10', type: 'Ride', amount: 'K 30.00', runningBalance: 'K 425.00', refunded: true }
+          ]);
+
+          const users = ref([
+            { name: 'Alice B.', role: 'Admin' },
+            { name: 'Brian C.', role: 'Driver' },
+            { name: 'Chipo D.', role: 'Passenger' },
+            { name: 'David E.', role: 'Passenger' }
+          ]);
+
+          function onPinComplete(pin) {
+            lastPin.value = pin;
+            showPad.value = false;
+            navigate('Home');
+          }
+
+          function onReversal(row) {
+            window.alert('Reversal requested for ' + row.date + ' ' + row.type);
+          }
+
+          function refresh() {
+            transactions.value = transactions.value.slice();
+          }
+
+          return {
+            showPad,
+            lastPin,
+            active,
+            transactions,
+            users,
+            onPinComplete,
+            onReversal,
+            refresh
+          };
+        }
+      };
+
+      register([
+        { name: 'Login', label: 'Login' },
+        { name: 'Home', label: 'Home' },
+        { name: 'Admin', label: 'Admin' }
+      ]);
+
+      const app = createApp(App);
+      registerSkeletonKit(app);
+      registerSkeletonKitCockpit(app);
+      app.mount('#app');
+    })();
+  </script>
+</body>
+</html>
