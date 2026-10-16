@@ -69,6 +69,31 @@ modals as in-situ requirement capture**.
   HTML is mechanical, iterations are cheap. Parallel: one skeleton per
   screen-variant if the user wants options.
 
+## Promotion record (2026-10-16, owner "go")
+
+**Kit v1 + session cockpit: PROMOTED from deferred → building.** Evidence bar
+met (the discipline held — this is what earned promotion, not endpoint shine):
+(1) owner's own in-session words: "comment on a specific component, or a
+specific part of the screen" — pre-marked [?] controls cannot do that, only
+inspect-mode + click-to-pin can; (2) owner's layering complaint (modal =
+"lines drawn over the skeleton") — structural clarity is the kit's job;
+(3) best feedback so far arrived via chat because in-situ capture was
+missing; (4) owner intent — strongest evidence class. SCOPE: bounded —
+cockpit (inspect mode, hover-outline, click/tap-pin, visibility toggle,
+notes list, export, screen nav). NO elevation toggle, NO canvas (both stay
+deferred until their evidence bars). Proving run = NFC skeleton re-declared
+on the kit; the owner's open session continues on the upgraded artifact.
+
+## IDE trajectory verdict (owner question 2026-10-16, recorded)
+
+"Vibe-coding IDE" as a market term = spec-poor, prompt-and-hope generation —
+crowded, funded, and the OPPOSITE of this skill's discipline. What the
+cockpit → editable-skeleton → elevation arc converges on is a **spec-driven
+build studio**: the moat is the library/fold-back loop (accumulated,
+verified expertise), which no market product has. Discipline: build the
+WIDGETS when sessions prove them; the "IDE" is a packaging decision made
+only after the widgets are load-bearing. No standalone IDE is built.
+
 ## Planned upgrades (owner-approved design 2026-10-16 — documented, DEFERRED until session evidence; do not build speculatively)
 
 1. **Skeleton kit (framework decision made)** — Vue 3 global build, vendored
