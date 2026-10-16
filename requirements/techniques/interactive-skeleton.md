@@ -69,6 +69,28 @@ modals as in-situ requirement capture**.
   HTML is mechanical, iterations are cheap. Parallel: one skeleton per
   screen-variant if the user wants options.
 
+## Shell v2 (owner: "go with your defaults", 2026-10-16)
+
+Owner refinements after first styled-cockpit session, all adopted:
+1. **Color policy v2**: monochrome-everything corrected — preview components
+   get FUNCTIONAL color-coding (component-type tints, zebra tables, sign
+   colors on money, interactive affordance tint, muted status pills) and
+   FEWER LINES (fills + spacing replace row borders; borders only where
+   structure demands an edge). Still banned: brand palettes, gradients,
+   decorative type, shadows-for-beauty. Rule: every color answers "because
+   it's a TYPE of thing".
+2. **Shell architecture**: cockpit = the application; preview = an inset
+   WINDOW inside it (window frame + title strip = current screen). Header
+   (title · device toggle · INSPECT · Help · FINISH), left sidebar (screens
+   DROPDOWN + add-screen), center preview window, right notes panel
+   (collapsible).
+3. **Device-width toggle** (phone ⇄ desktop) on the preview window.
+4. **Add screen (placeholder)** — cheap now: appends a named empty screen to
+   pin comments on ("what should go here?"). Draw-shapes/editable skeleton
+   still deferred to its own batch (placeholders are its foundation).
+5. **Help modal** — all explanatory prose (title, purpose, [?] meaning,
+   inspect mode, export) moves out of the page body into a Help [?] button.
+
 ## Styling boundary (owner call 2026-10-16 — corrects a manager category error)
 
 The no-aesthetics rule protects the ARTIFACT UNDER CRITIQUE, not the
