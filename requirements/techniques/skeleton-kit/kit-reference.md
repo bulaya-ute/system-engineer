@@ -80,3 +80,12 @@ Every kit component carries `data-sk-address="Screen / component / context"`. Ad
 ## Storage
 
 Notes are stored in `localStorage` under `sk-feedback-notes`. If the origin is opaque (`file://`) or quota is denied, the store falls back to an in-memory array for the session.
+
+## Styling boundary
+
+The kit deliberately separates the **preview** from the **session chrome**:
+
+- **Preview** (`sk-preview-region` and every `sk-*` component inside it) stays **monochrome structural**. Colors, shadows, gradients, and decorative styling are intentionally absent so the skeleton reads as raw structure, not a finished UI.
+- **Session chrome** (`sk-cockpit`, the inspect overlay/pins, and the comment modal) is fully styled with a distinct dark-slate visual language, system font stack, focus rings, and comfortable touch targets. It is meant to look foreign to the preview so it cannot be mistaken for the system being designed.
+
+When editing `skeleton-kit.css`, keep all `sk-*` component rules unchanged and put chrome styling in the marked "SESSION CHROME STYLES" section.

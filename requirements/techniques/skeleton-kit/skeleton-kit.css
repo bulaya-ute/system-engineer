@@ -394,3 +394,279 @@
   gap: 8px;
   justify-content: flex-end;
 }
+
+/* ============================================================
+   SESSION CHROME STYLES
+   Everything below styles the sk-cockpit control surface only.
+   Preview components (sk-*) remain monochrome structural above.
+   ============================================================ */
+
+.sk-cockpit {
+  --sk-chrome-bg: #0f172a;
+  --sk-chrome-surface: #1e293b;
+  --sk-chrome-border: #334155;
+  --sk-chrome-text: #f8fafc;
+  --sk-chrome-muted: #94a3b8;
+  --sk-chrome-accent: #38bdf8;
+  --sk-chrome-accent-text: #0f172a;
+  --sk-chrome-danger: #f87171;
+  --sk-chrome-radius: 8px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--sk-chrome-text);
+  background: var(--sk-chrome-bg);
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: var(--sk-chrome-radius);
+  padding: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.sk-cockpit__btn,
+.sk-cockpit__nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: 6px;
+  background: var(--sk-chrome-surface);
+  color: var(--sk-chrome-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 120ms ease;
+}
+
+.sk-cockpit__btn:hover,
+.sk-cockpit__nav-item:hover {
+  background: #27354f;
+  border-color: #475569;
+}
+
+.sk-cockpit__btn:focus-visible,
+.sk-cockpit__nav-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.45);
+  border-color: var(--sk-chrome-accent);
+}
+
+.sk-cockpit__btn:active,
+.sk-cockpit__nav-item:active {
+  transform: translateY(1px);
+}
+
+.sk-cockpit__btn--active,
+.sk-cockpit__nav-item--active {
+  background: var(--sk-chrome-accent);
+  border-color: var(--sk-chrome-accent);
+  color: var(--sk-chrome-accent-text);
+  font-weight: 600;
+}
+
+.sk-cockpit__btn--active:hover,
+.sk-cockpit__nav-item--active:hover {
+  background: #7dd3fc;
+  border-color: #7dd3fc;
+}
+
+.sk-cockpit__btn--active:focus-visible,
+.sk-cockpit__nav-item--active:focus-visible {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+}
+
+.sk-cockpit__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 0 0 12px 0;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid var(--sk-chrome-border);
+}
+
+.sk-cockpit__status {
+  color: var(--sk-chrome-accent);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sk-cockpit__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px 0;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid var(--sk-chrome-border);
+}
+
+.sk-cockpit__notes {
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: var(--sk-chrome-radius);
+  background: var(--sk-chrome-surface);
+  padding: 12px;
+}
+
+.sk-cockpit__notes > strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: var(--sk-chrome-text);
+}
+
+.sk-cockpit__note {
+  border-bottom: 1px solid var(--sk-chrome-border);
+  padding: 10px 0;
+}
+
+.sk-cockpit__note:last-child {
+  border-bottom: none;
+}
+
+.sk-cockpit__note-address {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sk-chrome-accent);
+  margin: 0 0 6px 0;
+  word-break: break-all;
+}
+
+.sk-cockpit__note-delete {
+  margin-top: 8px;
+  min-height: 32px;
+  padding: 6px 12px;
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--sk-chrome-danger);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.sk-cockpit__note-delete:hover {
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.sk-cockpit__note-delete:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.35);
+  border-color: var(--sk-chrome-danger);
+}
+
+.sk-cockpit__empty {
+  color: var(--sk-chrome-muted);
+  font-size: 14px;
+  font-style: normal;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.sk-cockpit__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 320px;
+  max-width: min(90vw, 480px);
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: var(--sk-chrome-radius);
+  background: var(--sk-chrome-surface);
+  padding: 20px;
+  z-index: 2000;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+.sk-cockpit__modal::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  z-index: -1;
+}
+
+.sk-cockpit__modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: var(--sk-chrome-text);
+}
+
+.sk-cockpit__modal-address {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--sk-chrome-accent);
+  margin: 0 0 14px 0;
+  word-break: break-all;
+}
+
+.sk-cockpit__modal-text {
+  width: 100%;
+  min-height: 96px;
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: 6px;
+  background: var(--sk-chrome-bg);
+  color: var(--sk-chrome-text);
+  padding: 10px;
+  margin: 0 0 16px 0;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.sk-cockpit__modal-text:focus {
+  outline: none;
+  border-color: var(--sk-chrome-accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+}
+
+.sk-cockpit__modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Inspect overlay inside preview: stays light and translucent. */
+.sk-cockpit__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Inspect outline applied to preview elements during inspect mode. */
+.sk-inspect-outline {
+  outline: 3px solid #111;
+  outline-offset: 3px;
+}
+
+.sk-cockpit__pin-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.sk-cockpit__pin {
+  position: absolute;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%);
+}

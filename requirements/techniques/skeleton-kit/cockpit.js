@@ -6,7 +6,7 @@
     throw new Error('cockpit.js requires skeleton-kit.js and window.Vue.');
   }
 
-  const { ref, computed, onMounted, onUnmounted, h, Teleport } = window.Vue;
+  const { ref, computed, watch, nextTick, onMounted, onUnmounted, h, Teleport } = window.Vue;
 
   const SkCockpit = {
     name: 'sk-cockpit',
@@ -90,10 +90,24 @@
       }
 
       function onKeyDown(e) {
-        if (e.key === 'i' || e.key === 'I') {
+        if (e.key === 'Escape' && modalOpen.value) {
+          e.preventDefault();
+          modalOpen.value = false;
+        } else if ((e.key === 'i' || e.key === 'I') && !modalOpen.value) {
           toggleInspect();
         }
       }
+
+      watch(modalOpen, (open) => {
+        if (open) {
+          nextTick(() => {
+            const ta = document.querySelector('.sk-cockpit__modal-text');
+            if (ta && typeof ta.focus === 'function') {
+              ta.focus();
+            }
+          });
+        }
+      });
 
       function toggleInspect() {
         inspectMode.value = !inspectMode.value;
@@ -270,7 +284,7 @@
                     h('div', null, n.note),
                     h(
                       'button',
-                      { type: 'button', onClick: () => deleteNote(n.id) },
+                      { type: 'button', class: 'sk-cockpit__note-delete', onClick: () => deleteNote(n.id) },
                       'Delete'
                     )
                   ])
@@ -280,6 +294,7 @@
 
           modalOpen.value
             ? h('div', { class: 'sk-cockpit__modal' }, [
+                h('div', { class: 'sk-cockpit__modal-title' }, 'Add note'),
                 h('div', { class: 'sk-cockpit__modal-address' }, modalAddress.value),
                 h('textarea', {
                   class: 'sk-cockpit__modal-text',
