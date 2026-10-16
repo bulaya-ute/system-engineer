@@ -69,6 +69,16 @@ modals as in-situ requirement capture**.
   HTML is mechanical, iterations are cheap. Parallel: one skeleton per
   screen-variant if the user wants options.
 
+## Styling boundary (owner call 2026-10-16 — corrects a manager category error)
+
+The no-aesthetics rule protects the ARTIFACT UNDER CRITIQUE, not the
+instrumentation. Therefore: **preview region stays monochrome structural**
+(bias control unchanged); **session chrome — cockpit panel, comment modal,
+pins, notes list, finish-session — is properly styled** and visually
+distinct from the preview (an instrument panel must be discoverable and
+comfortable, and clearly foreign so it is never mistaken for the system
+being designed). Kit styling rules updated accordingly.
+
 ## Kit v1.1 backlog — PROVEN needs (from the NFC proving run, 2026-10-16)
 
 The growth rule says the kit grows only on real-skeleton evidence; the NFC
