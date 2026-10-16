@@ -68,3 +68,42 @@ modals as in-situ requirement capture**.
 - Skeleton generation from brief: cheap/fast model — brief is one page,
   HTML is mechanical, iterations are cheap. Parallel: one skeleton per
   screen-variant if the user wants options.
+
+## Planned upgrades (owner-approved design 2026-10-16 — documented, DEFERRED until session evidence; do not build speculatively)
+
+1. **Skeleton kit (framework decision made)** — Vue 3 global build, vendored
+   locally (~120KB, MIT; one-time), + a small component kit on top: PinPad,
+   TapTarget, MoneyTable, ScreenNav, FeedbackModal, common atoms; monochrome
+   structural CSS (spacing rhythm, modal layering via backdrop — structural
+   clarity, never aesthetics); feedback-capture composable + finish-session
+   export wired ONCE in the kit. Skeletons become declarations (~4x token
+   cut measured vs hand-written HTML). DECISION: framework over custom
+   engine (owner call — "the problem might already be solved"; correct:
+   only feedback-capture and the unstyled-discipline are ours). No LOC
+   caps — kit grows only when a real skeleton proves it needs a component.
+
+2. **Session cockpit (owner preference: dedicated controls, not key-combos)** —
+   a control panel beside the preview: enter/exit INSPECT mode (hover
+   outlines the component under cursor; click/tap pins a comment anchored
+   to its stable address `screen+component+context`; works on touch — the
+   NFC sessions run on Android). Comments-visibility toggle; notes list;
+   finish-session export; screen navigation; fidelity-tier control.
+   Keyboard combo may remain as a desktop accelerator (both/and).
+
+3. **Fidelity tiers (owner idea, 2026-10-16)** — Tier 0 skeleton = default
+   (flow critique, bias control). Tier 1 = PER-SCREEN elevation on demand
+   ("show me this one properly"): real tokens/styling for the named screen
+   only, using theme-library/ui-ux-audit assets. Fidelity is a per-screen
+   session attribute, not a global mode. Spawn-profile: T0 cheap models,
+   T1 elevation strong model + design assets.
+
+4. **Editable skeleton ("canvas" — DEFERRED until sessions show the need)** —
+   owner-proposed user-draws-layout mode. Reframed per manager analysis:
+   not a blank canvas but an EDITABLE declaration — start from the current
+   skeleton, drag/resize/drop kit components (the palette IS the semantic
+   shape set: dropping a Table need not be explained), AI diffs the layout
+   tree as fold-back. The "chatbox" half is already solved: it is the
+   fold-back conversation. Build trigger: ≥2 sessions where layout intent
+   fought words. Trajectory (named by owner, owned openly): cockpit →
+   editable skeleton → live elevation = a vibe-coding IDE arc, built only
+   on evidence.
