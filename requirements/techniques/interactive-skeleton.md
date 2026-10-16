@@ -73,10 +73,12 @@ modals as in-situ requirement capture**.
 
 Owner refinements after first styled-cockpit session, all adopted:
 1. **Color policy v2**: monochrome-everything corrected — preview components
-   get FUNCTIONAL color-coding (component-type tints, zebra tables, sign
-   colors on money, interactive affordance tint, muted status pills) and
-   FEWER LINES (fills + spacing replace row borders; borders only where
-   structure demands an edge). Still banned: brand palettes, gradients,
+   get FUNCTIONAL color-coding (component-type tints, sign colors on money,
+   interactive affordance tint, muted status pills) and FEWER LINES (fills +
+   spacing replace whole-surface borders; borders only where structure
+   demands an edge). **Tables: faint row lines (owner preference 2026-10-16,
+   stated during shell-v2 build — zebra tried, rejected as personal taste);
+   one low-contrast row-line tier + header fill + generous padding.** Still banned: brand palettes, gradients,
    decorative type, shadows-for-beauty. Rule: every color answers "because
    it's a TYPE of thing".
 2. **Shell architecture**: cockpit = the application; preview = an inset
