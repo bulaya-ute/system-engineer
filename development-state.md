@@ -66,8 +66,11 @@ on session evidence, not endpoint shine.
   critique → record. This build IS the core exercise.
 - [next] Exemplar growth: Odoo (domain chunks) or Frappe — library breadth is
   the expertise backbone (target: 4-6 across system classes before E1).
-- [next] E1 evaluation: agent rebuilds a library-matched system; score spec
-  fidelity, correctness, token cost vs baseline.
+- [postponed, owner 2026-10-16] E1 evaluation — FULL EXPERIMENT DESIGN at
+  `evaluation/e1-assetyard.md` (rebranded blind Snipe-IT clone, .NET 8 +
+  Postgres + React, verified-core scope, incident classification spec-gap vs
+  execution-failure, differential-rebuild disambiguation, scoring). Do not
+  start without owner go.
 - [next] Deferred technique upgrades (build on evidence only): skeleton kit
   (Vue vendored) → cockpit → fidelity tiers → editable skeleton.
 
