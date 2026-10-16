@@ -1,6 +1,13 @@
-/* skeleton-kit.css v1 — monochrome structural styles only */
+/* skeleton-kit.css v2 — functional color-coding for preview; dark-slate chrome */
 
 /* ---------- Reset / base ---------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .sk-preview-region,
 .sk-screen,
 .sk-row,
@@ -17,11 +24,26 @@
   font-family: inherit;
 }
 
-/* ---------- Preview region ---------- */
+/* ---------- Preview components: functional color policy v2 ---------- */
+
+.sk-button,
+.sk-field__input,
+.sk-tap-target,
+.sk-pin-pad,
+.sk-pin-pad__key,
+.sk-money-table__reversal {
+  /* interactive affordance tint */
+  --sk-tint-bg: #eef4ff;
+  --sk-tint-border: #c9d8f0;
+  --sk-tint-text: #1e3a5f;
+  --sk-tint-strong: #dbeafe;
+  --sk-tint-strong-border: #93c5fd;
+}
+
 .sk-preview-region {
   position: relative;
-  border: 1px solid #999;
-  min-height: 200px;
+  background: #fff;
+  color: #111;
   overflow: auto;
 }
 
@@ -50,6 +72,21 @@
   overflow-y: auto;
 }
 
+.sk-screen--placeholder {
+  display: none;
+  padding: 32px;
+  background: #f7f8fa;
+  border: 2px dashed #c9d8f0;
+  border-radius: 8px;
+  text-align: center;
+  color: #4b5563;
+}
+
+.sk-screen-placeholder__content {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 /* ---------- Row / Column ---------- */
 .sk-row,
 .sk-column {
@@ -71,35 +108,53 @@
   margin: 0 0 8px 0;
 }
 
+.sk-heading {
+  color: #111;
+  font-weight: 700;
+}
+
 /* ---------- Button ---------- */
 .sk-button {
   display: inline-block;
   padding: 6px 12px;
   margin: 0 4px 4px 0;
-  border: 1px solid #666;
-  background: #fff;
-  color: #000;
+  border: 1px solid var(--sk-tint-border);
+  border-radius: 5px;
+  background: var(--sk-tint-bg);
+  color: var(--sk-tint-text);
   cursor: pointer;
+  font-weight: 500;
 }
 
 .sk-button--primary {
-  border-width: 2px;
+  background: var(--sk-tint-strong);
+  border-color: var(--sk-tint-strong-border);
+  font-weight: 600;
 }
 
 .sk-button:hover {
-  background: #eee;
+  background: var(--sk-tint-strong);
+}
+
+.sk-button--primary:hover {
+  background: #bfdbfe;
 }
 
 /* ---------- Card ---------- */
 .sk-card {
-  border: 1px solid #999;
+  background: #f7f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
   margin: 0 0 12px 0;
+  overflow: hidden;
 }
 
 .sk-card__title {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #e5e7eb;
   padding: 8px 12px;
-  font-weight: bold;
+  font-weight: 700;
+  background: #f2f4f7;
+  color: #111;
 }
 
 .sk-card__body {
@@ -115,27 +170,61 @@
 .sk-field__label {
   display: block;
   margin: 0 0 4px 0;
+  font-weight: 500;
+  color: #374151;
 }
 
 .sk-field__input {
   display: block;
   width: 100%;
-  padding: 6px;
-  border: 1px solid #666;
+  padding: 8px;
+  border: 1px solid var(--sk-tint-border);
+  border-radius: 5px;
+  background: var(--sk-tint-bg);
+  color: var(--sk-tint-text);
 }
 
 /* ---------- Pill ---------- */
 .sk-pill {
   display: inline-block;
   padding: 2px 8px;
-  border: 1px solid #666;
+  border-radius: 9999px;
   margin: 0 4px 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.sk-pill[data-sk-context="active"] {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.sk-pill[data-sk-context="pending"] {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.sk-pill[data-sk-context="blocked"] {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+.sk-pill[data-sk-context="replaced"] {
+  background: #e0e7ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
 }
 
 /* ---------- Divider ---------- */
 .sk-divider {
   border: none;
-  border-top: 1px solid #999;
+  border-top: 1px solid #e5e7eb;
   margin: 12px 0;
 }
 
@@ -147,8 +236,9 @@
 }
 
 .sk-list__item {
-  border: 1px solid #ccc;
-  padding: 8px;
+  background: #f7f8fa;
+  border-radius: 6px;
+  padding: 10px;
 }
 
 /* ---------- Money Table ---------- */
@@ -160,39 +250,71 @@
 
 .sk-money-table th,
 .sk-money-table td {
-  border: 1px solid #999;
-  padding: 6px;
+  padding: 8px;
   text-align: left;
+  border: none;
+}
+.sk-money-table th {
+  border-bottom: 1px solid #e6eaee;
 }
 
-.sk-money-table th {
-  background: #f0f0f0;
+.sk-money-table thead tr {
+  background: #f2f4f7;
+}
+
+/* Owner preference (2026-10-16): faint row lines over zebra striping.
+   One low-contrast separator tier — legible, never line-soup. */
+.sk-money-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #edf0f3;
+}
+
+.sk-money-table__amount--negative {
+  color: #991b1b;
+  font-weight: 600;
+}
+
+.sk-money-table__amount--positive {
+  color: #166534;
+  font-weight: 600;
 }
 
 .sk-money-table__reversal {
   margin-left: 8px;
   padding: 2px 6px;
-  border: 1px solid #666;
-  background: #fff;
+  border: 1px solid var(--sk-tint-border);
+  border-radius: 4px;
+  background: var(--sk-tint-bg);
+  color: var(--sk-tint-text);
   cursor: pointer;
+  font-weight: 500;
+}
+
+.sk-money-table__reversal:hover {
+  background: var(--sk-tint-strong);
 }
 
 /* ---------- Tap Target ---------- */
 .sk-tap-target {
   padding: 24px;
-  border: 2px solid #333;
+  border: 1px solid var(--sk-tint-border);
+  border-radius: 8px;
+  background: var(--sk-tint-bg);
+  color: var(--sk-tint-text);
   text-align: center;
   cursor: pointer;
   margin: 0 0 12px 0;
+  font-weight: 600;
 }
 
 .sk-tap-target:active {
-  background: #eee;
+  background: var(--sk-tint-strong);
 }
 
 /* ---------- Pin Pad ---------- */
 .sk-pin-pad {
-  border: 1px solid #999;
+  border: 1px solid var(--sk-tint-border);
+  border-radius: 8px;
+  background: var(--sk-tint-bg);
   padding: 12px;
   max-width: 260px;
 }
@@ -200,14 +322,19 @@
 .sk-pin-pad__attempts {
   margin: 0 0 8px 0;
   text-align: center;
+  color: var(--sk-tint-text);
+  font-weight: 500;
 }
 
 .sk-pin-pad__display {
-  border: 1px solid #666;
+  border: 1px solid var(--sk-tint-border);
+  border-radius: 5px;
+  background: #fff;
   padding: 8px;
   margin: 0 0 12px 0;
   text-align: center;
   letter-spacing: 4px;
+  color: var(--sk-tint-text);
 }
 
 .sk-pin-pad__dots {
@@ -220,13 +347,14 @@
 .sk-pin-pad__dot {
   width: 12px;
   height: 12px;
-  border: 1px solid #333;
+  border: 1px solid var(--sk-tint-strong-border);
   border-radius: 50%;
   display: inline-block;
+  background: #fff;
 }
 
 .sk-pin-pad__dot--filled {
-  background: #333;
+  background: #2563eb;
 }
 
 .sk-pin-pad__grid {
@@ -237,23 +365,30 @@
 
 .sk-pin-pad__key {
   padding: 12px;
-  border: 1px solid #666;
+  border: 1px solid var(--sk-tint-border);
+  border-radius: 5px;
   background: #fff;
+  color: var(--sk-tint-text);
   cursor: pointer;
+  font-weight: 500;
+}
+
+.sk-pin-pad__key:hover {
+  background: var(--sk-tint-strong);
 }
 
 /* ---------- Inspect overlay / outline ---------- */
 .sk-cockpit__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(200, 200, 200, 0.35);
+  background: rgba(255, 255, 255, 0.35);
   pointer-events: none;
   z-index: 1000;
 }
 
 .sk-inspect-outline {
-  outline: 2px solid #333;
-  outline-offset: 2px;
+  outline: 3px solid #111;
+  outline-offset: 3px;
 }
 
 .sk-cockpit__pin-layer {
@@ -265,140 +400,24 @@
 
 .sk-cockpit__pin {
   position: absolute;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 4px;
-  border: 1px solid #333;
-  background: #fff;
-  color: #000;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  background: #0f172a;
+  color: #fff;
   font-size: 12px;
-  line-height: 18px;
+  font-weight: 700;
+  line-height: 22px;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   transform: translate(-50%, -50%);
-}
-
-/* ---------- Cockpit ---------- */
-.sk-cockpit {
-  border: 1px solid #333;
-  padding: 8px;
-  background: #fff;
-}
-
-.sk-cockpit__bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  margin: 0 0 8px 0;
-  padding: 0 0 8px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.sk-cockpit__btn {
-  padding: 6px 12px;
-  border: 1px solid #666;
-  background: #fff;
-  cursor: pointer;
-}
-
-.sk-cockpit__btn--active {
-  border-width: 2px;
-  background: #f0f0f0;
-}
-
-.sk-cockpit__status {
-  color: #333;
-  font-size: 12px;
-}
-
-.sk-cockpit__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 0 0 8px 0;
-  padding: 0 0 8px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.sk-cockpit__nav-item {
-  padding: 4px 10px;
-  border: 1px solid #999;
-  background: #fff;
-  cursor: pointer;
-}
-
-.sk-cockpit__nav-item--active {
-  border-width: 2px;
-}
-
-.sk-cockpit__notes {
-  max-height: 220px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  padding: 8px;
-}
-
-.sk-cockpit__note {
-  border-bottom: 1px solid #ddd;
-  padding: 6px 0;
-}
-
-.sk-cockpit__note-address {
-  font-size: 12px;
-  color: #555;
-  margin: 0 0 4px 0;
-}
-
-.sk-cockpit__empty {
-  color: #777;
-  font-style: italic;
-}
-
-/* ---------- Modal ---------- */
-.sk-cockpit__modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #333;
-  background: #fff;
-  padding: 16px;
-  z-index: 2000;
-  min-width: 280px;
-}
-
-.sk-cockpit__modal::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(200, 200, 200, 0.5);
-  z-index: -1;
-}
-
-.sk-cockpit__modal-address {
-  font-weight: bold;
-  margin: 0 0 8px 0;
-  word-break: break-all;
-}
-
-.sk-cockpit__modal-text {
-  width: 100%;
-  min-height: 80px;
-  border: 1px solid #666;
-  padding: 6px;
-  margin: 0 0 12px 0;
-}
-
-.sk-cockpit__modal-actions {
-  display: flex;
-  gap: 8px;
-  justify-content: flex-end;
 }
 
 /* ============================================================
-   SESSION CHROME STYLES
-   Everything below styles the sk-cockpit control surface only.
-   Preview components (sk-*) remain monochrome structural above.
+   SESSION CHROME STYLES — Shell v2
+   Full-viewport grid app shell; preview is an inset window.
    ============================================================ */
 
 .sk-cockpit {
@@ -410,17 +429,121 @@
   --sk-chrome-accent: #38bdf8;
   --sk-chrome-accent-text: #0f172a;
   --sk-chrome-danger: #f87171;
-  --sk-chrome-radius: 8px;
+  --sk-chrome-radius: 10px;
 
+  display: contents;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: var(--sk-chrome-text);
-  background: var(--sk-chrome-bg);
-  border: 1px solid var(--sk-chrome-border);
-  border-radius: var(--sk-chrome-radius);
-  padding: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+#app {
+  display: grid;
+  grid-template-areas:
+    "sk-header sk-header sk-header"
+    "sk-left sk-preview-title sk-right"
+    "sk-left sk-preview sk-right";
+  grid-template-columns: 260px 1fr 280px;
+  grid-template-rows: auto auto 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--sk-chrome-bg);
+  color: var(--sk-chrome-text);
+}
+
+.sk-cockpit__body {
+  display: contents;
+}
+
+/* ---------- Header ---------- */
+.sk-cockpit__header {
+  grid-area: sk-header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--sk-chrome-bg);
+  border-bottom: 1px solid var(--sk-chrome-border);
+}
+
+.sk-cockpit__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--sk-chrome-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sk-cockpit__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* ---------- Sidebars ---------- */
+.sk-cockpit__sidebar {
+  grid-area: sk-left;
+  background: var(--sk-chrome-surface);
+  border-right: 1px solid var(--sk-chrome-border);
+  padding: 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sk-cockpit__sidebar--right {
+  grid-area: sk-right;
+  border-right: none;
+  border-left: 1px solid var(--sk-chrome-border);
+}
+
+/* ---------- Preview window ---------- */
+.sk-cockpit__preview-title {
+  grid-area: sk-preview-title;
+  background: var(--sk-chrome-surface);
+  color: var(--sk-chrome-text);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--sk-chrome-border);
+  border-bottom: none;
+  border-radius: var(--sk-chrome-radius) var(--sk-chrome-radius) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sk-cockpit__preview-device {
+  font-size: 12px;
+  color: var(--sk-chrome-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.sk-preview-region {
+  grid-area: sk-preview;
+  border: 1px solid var(--sk-chrome-border);
+  border-top: none;
+  border-radius: 0 0 var(--sk-chrome-radius) var(--sk-chrome-radius);
+}
+
+.sk-preview-region--phone {
+  width: 390px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.sk-preview-region--desktop {
+  width: 100%;
+}
+
+/* ---------- Buttons ---------- */
 .sk-cockpit__btn,
 .sk-cockpit__nav-item {
   display: inline-flex;
@@ -476,46 +599,112 @@
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
 }
 
-.sk-cockpit__bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  margin: 0 0 12px 0;
-  padding: 0 0 12px 0;
-  border-bottom: 1px solid var(--sk-chrome-border);
-}
-
-.sk-cockpit__status {
-  color: var(--sk-chrome-accent);
+.sk-cockpit__btn--small {
+  min-height: 32px;
+  padding: 6px 10px;
   font-size: 13px;
-  font-weight: 500;
 }
 
+.sk-cockpit__btn--help {
+  min-width: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* ---------- Screen navigation ---------- */
 .sk-cockpit__nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 8px;
-  margin: 0 0 12px 0;
-  padding: 0 0 12px 0;
-  border-bottom: 1px solid var(--sk-chrome-border);
 }
 
+.sk-cockpit__screen-select {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: 6px;
+  background: var(--sk-chrome-bg);
+  color: var(--sk-chrome-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sk-cockpit__screen-select:focus-visible {
+  outline: none;
+  border-color: var(--sk-chrome-accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+}
+
+.sk-cockpit__add-screen {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sk-cockpit__add-screen-input {
+  flex: 1;
+  min-width: 80px;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--sk-chrome-border);
+  border-radius: 6px;
+  background: var(--sk-chrome-bg);
+  color: var(--sk-chrome-text);
+  font-size: 14px;
+}
+
+.sk-cockpit__add-screen .sk-cockpit__btn {
+  white-space: nowrap;
+}
+
+.sk-cockpit__add-screen-input:focus {
+  outline: none;
+  border-color: var(--sk-chrome-accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+}
+
+.sk-cockpit__nav-item {
+  text-align: left;
+  justify-content: flex-start;
+  min-height: 34px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+/* ---------- Notes ---------- */
 .sk-cockpit__notes {
-  max-height: 260px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   border: 1px solid var(--sk-chrome-border);
   border-radius: var(--sk-chrome-radius);
   background: var(--sk-chrome-surface);
   padding: 12px;
+  overflow-y: auto;
+  flex: 1;
 }
 
-.sk-cockpit__notes > strong {
+.sk-cockpit__notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.sk-cockpit__notes > strong,
+.sk-cockpit__notes-header > strong {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  margin: 0 0 10px 0;
   color: var(--sk-chrome-text);
+}
+
+.sk-cockpit__notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
 }
 
 .sk-cockpit__note {
@@ -567,13 +756,23 @@
   text-align: center;
 }
 
+.sk-cockpit__status {
+  color: var(--sk-chrome-accent);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* ---------- Modal ---------- */
 .sk-cockpit__modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 320px;
-  max-width: min(90vw, 480px);
+  max-width: min(90vw, 520px);
+  max-height: 90vh;
+  overflow-y: auto;
   border: 1px solid var(--sk-chrome-border);
   border-radius: var(--sk-chrome-radius);
   background: var(--sk-chrome-surface);
@@ -605,6 +804,21 @@
   word-break: break-all;
 }
 
+.sk-cockpit__modal-body {
+  color: var(--sk-chrome-text);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.sk-cockpit__modal-body p {
+  margin: 0 0 10px 0;
+}
+
+.sk-cockpit__modal-body p:last-child {
+  margin-bottom: 0;
+}
+
 .sk-cockpit__modal-text {
   width: 100%;
   min-height: 96px;
@@ -632,41 +846,29 @@
   justify-content: flex-end;
 }
 
-/* Inspect overlay inside preview: stays light and translucent. */
-.sk-cockpit__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.35);
-  pointer-events: none;
-  z-index: 1000;
+/* ---------- Responsive: collapse sidebars on narrow viewports ---------- */
+@media (max-width: 900px) {
+  #app {
+    grid-template-areas:
+      "sk-header"
+      "sk-preview-title"
+      "sk-preview"
+      "sk-left"
+      "sk-right";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+  }
+
+  .sk-cockpit__sidebar {
+    max-height: 220px;
+  }
 }
 
-/* Inspect outline applied to preview elements during inspect mode. */
-.sk-inspect-outline {
-  outline: 3px solid #111;
-  outline-offset: 3px;
-}
-
-.sk-cockpit__pin-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1001;
-}
-
-.sk-cockpit__pin {
-  position: absolute;
-  min-width: 26px;
-  height: 26px;
-  padding: 0 6px;
-  border: 2px solid #fff;
-  border-radius: 9999px;
-  background: #0f172a;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 22px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  transform: translate(-50%, -50%);
+/* Legacy pill items: kept in the DOM for suite compat (asserted via jsdom
+   clicks, which ignore visibility), hidden from humans — the screens
+   dropdown is the single user-facing control (owner, shell v2). NOTE: scope
+   to the ITEMS only — the .sk-cockpit__nav container also holds the new
+   dropdown + add-screen input (manager fix 2026-10-16). */
+.sk-cockpit__nav-item {
+  display: none !important;
 }

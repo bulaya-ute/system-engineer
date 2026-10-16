@@ -131,15 +131,41 @@
         activeScreenRef.value = name;
       }
     }
+    function addScreen(name) {
+      const n = String(name || '').trim();
+      if (!n) return;
+      if (!screensRef.value.some((s) => s.name === n)) {
+        screensRef.value = screensRef.value.concat({ name: n, label: n, placeholder: true });
+      }
+      navigate(n);
+      /* Build a placeholder DOM screen in the default preview region so
+         the cockpit (or any caller) has something visible to pin notes on. */
+      if (typeof document !== 'undefined') {
+        const preview = document.querySelector('.sk-preview-region');
+        if (preview && !preview.querySelector('[data-sk-screen="' + n + '"]')) {
+          const div = document.createElement('div');
+          div.className = 'sk-screen sk-screen--placeholder';
+          div.setAttribute('data-sk-screen', n);
+          div.setAttribute('data-sk-address', buildAddress(n, 'sk-screen', ''));
+          div.setAttribute('data-sk-component', 'sk-screen');
+          div.style.display = 'none';
+          div.innerHTML = '<div class="sk-screen-placeholder__content">Pin notes here — what should this screen do?</div>';
+          preview.appendChild(div);
+        }
+      }
+      return n;
+    }
     return {
       screens: screensRef,
       active: activeScreenRef,
       register,
-      navigate
+      navigate,
+      addScreen
     };
   }
 
   window.skUseScreens = useScreens;
+  window.skAddScreen = useScreens().addScreen;
 
   /* ---------- Address injection ---------- */
   const ScreenKey = Symbol('sk-screen');
@@ -389,6 +415,12 @@
     setup(props, { emit }) {
       const address = useAddress('sk-money-table');
       const rows = computed(() => props.bind || []);
+      function amountClass(amount) {
+        const s = String(amount || '');
+        if (s.charAt(0) === '-') return 'sk-money-table__amount--negative';
+        if (s.charAt(0) === '+') return 'sk-money-table__amount--positive';
+        return '';
+      }
       return () =>
         window.Vue.h('table', { class: 'sk-money-table', ...addressAttrs(address) }, [
           window.Vue.h('thead', null, [
@@ -406,7 +438,7 @@
               window.Vue.h('tr', { key: index }, [
                 window.Vue.h('td', null, String(row.date || '')),
                 window.Vue.h('td', null, String(row.type || '')),
-                window.Vue.h('td', null, String(row.amount || '')),
+                window.Vue.h('td', { class: amountClass(row.amount) }, String(row.amount || '')),
                 window.Vue.h('td', null, [
                   String(row.runningBalance || ''),
                   row.refunded
