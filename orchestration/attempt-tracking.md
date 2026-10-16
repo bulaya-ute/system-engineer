@@ -10,7 +10,11 @@ branch (`att/<problem-slug>/`), so any failed chain is mechanically revertible.
 2. Each attempt = one commit:
    `attempt: N, hypothesis: <one line>, change: <one line>, result: <evidence|refuted>`.
 3. Attempts never mix concerns — one hypothesis per commit.
-4. **Root cause found** (e.g. "outdated browser", "stray pasted character
+4. **The ledger is forward-only** (dry-run-1 lesson): history is never
+   rewritten. A defect discovered after a commit gets its fix as the NEXT
+   attempt-tagged commit; folding a fix into an already-reported commit is
+   a ledger slip — record it, don't rewrite it.
+5. **Root cause found** (e.g. "outdated browser", "stray pasted character
    flipped meaning"):
    - `git revert` the whole failed chain (or reset to the chain's base if the
      branch is scratch-only);
@@ -18,7 +22,7 @@ branch (`att/<problem-slug>/`), so any failed chain is mechanically revertible.
    - record the incident (attempt count, root cause, revert hash) in the
      agent's `observations.csv` — a `kb` route candidate if the trigger is
      repeatable.
-5. **Stop rule**: same error class twice → escalate, don't retry blind;
+6. **Stop rule**: same error class twice → escalate, don't retry blind;
    three refuted hypotheses with no evidence of progress → halt, report
    blocker to the manager with the ledger summary. Piling patch upon
    refuted patch is prohibited.

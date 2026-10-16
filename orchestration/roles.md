@@ -20,6 +20,12 @@ human  (authority: everything; attention: scarce — protect it)
   folder (`agents/<agent-id>/`).
 - **Honor scope.** Need a change outside it? File it with the manager — do
   not edit. The manager either absorbs it, re-delegates, or escalates.
+- **Environment-setup artifacts are carved out of scope rules** (dry-run-1
+  lesson): `.venv`/caches/tooling installs are allowed as *environment
+  setup*; source files remain the scope boundary. Flag artifacts you created.
+- **Managers initialize repos** with `.gitignore` (runtime artifacts policy)
+  before agents work in them (dry-run-1 lesson: both agents flagged the
+  missing-ignore fallout instead).
 - Sub-agents return **verifiable artifacts** (code + its evidence), not prose.
 
 ## Branch checkout (shared working trees)

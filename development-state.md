@@ -41,10 +41,17 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   verify-snipeit.py}` — reusable for any future run. Foundation-first spec
   altitude policy (owner, 2026-10-15) encoded.
 
+- [built] Batch 5 — multi-agent dry run 1 (orchestration machinery now
+  tested, not prose): two sub-agents on different models (kimi-k2.7-code
+  core / glm-5.3-flash surface) built the kvstore toy in parallel against a
+  pinned contract; held: spawn-profiles tier split, contract-coding (zero
+  conflicts), scope honoring (0 violations, 6 routed notices), branch
+  registry (BR-1 full lifecycle), per-agent memory folders, manager
+  verification gate. 4 incidents refined into the skill: forward-only
+  attempt ledger, tooling-artifact scope carve-out, manager .gitignore duty,
+  token-measurement limitation. See `evaluation/runs/dry-run-1.md`.
+
 ## Next (in order)
-- [next] Multi-agent orchestration dry run: two sub-agents + manager on a
-  toy build, exercising scope honoring, branch registry, attempt ledger,
-  escalation. First live spawn-profile use (cheap model on mechanical work).
 - [next] Interactive-skeleton first live run (the security-escort example or
   an owner project): strong model brief → cheap-model skeleton → session →
   fold-back; validates the technique end-to-end.
