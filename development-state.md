@@ -59,6 +59,25 @@ editable skeleton) are DESIGNED + DOCUMENTED (`techniques/
 interactive-skeleton.md` "Planned upgrades") but DEFERRED — build each only
 on session evidence, not endpoint shine.
 
+## Where we are (halt point, 2026-10-16)
+
+- **Skeleton technique is materially upgraded**: skeleton-kit v1 (Vue
+  vendored) + session cockpit + shell v2 all shipped, 194 in-repo
+  assertions green (verify/), real-browser render verified each step.
+  Kitty styling rule locked: chrome styled, preview functionally colored
+  (faint table row lines — owner preference).
+- **NFC order-wallet project (first real loop) — SESSION OPEN**:
+  spec v0 + session folds in `nfc-loyalty-docs/spec/` (requirements.csv
+  13 rows, open-questions OQ-02/03/04 live, skeleton brief, v3 declaration).
+  The owner's interactive-skeleton session is LIVE (skeleton served at
+  localhost:4322 + phone; inspect-mode cockpit). Feedback notes pending
+  fold-back; then: phase plan (.NET 8 + Postgres + React) → build →
+  critique → record. OQ-04 (counter pinpad vs phone-push) unanswered.
+- **E1 "AssetYard"**: fully designed (`evaluation/e1-assetyard.md`),
+  owner-POSTPONED.
+- Kit v1.1 backlog (proven needs): sk-select, reusable sk-modal,
+  money-table per-row actions, openComment()/sk-feedback-button.
+
 ## Next (in order)
 - [next] NFC order-wallet project (FIRST REAL LOOP, in flight): intake done
   (spec v0+session folds at nfc-loyalty-docs/spec); skeleton v2 session with
