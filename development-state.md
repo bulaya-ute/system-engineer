@@ -51,13 +51,25 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   attempt ledger, tooling-artifact scope carve-out, manager .gitignore duty,
   token-measurement limitation. See `evaluation/runs/dry-run-1.md`.
 
+## Owner direction (2026-10-16)
+
+Focus = the skill's core: **AI-model software-engineer expertise first.**
+The skeleton-technique upgrades (kit-on-Vue, cockpit, fidelity tiers,
+editable skeleton) are DESIGNED + DOCUMENTED (`techniques/
+interactive-skeleton.md` "Planned upgrades") but DEFERRED — build each only
+on session evidence, not endpoint shine.
+
 ## Next (in order)
-- [next] Interactive-skeleton first live run (the security-escort example or
-  an owner project): strong model brief → cheap-model skeleton → session →
-  fold-back; validates the technique end-to-end.
-- [next] Theme-library interactivity upgrade (in `ui-ux-audit` repo): animated
-  sidebar collapse, FLIP-animated table rows, live search/add/remove, real
-  modals — per approved outline.
+- [next] NFC order-wallet project (FIRST REAL LOOP, in flight): intake done
+  (spec v0+session folds at nfc-loyalty-docs/spec); skeleton v2 session with
+  owner; then phase plan (.NET 8 + Postgres + React) → multi-agent build →
+  critique → record. This build IS the core exercise.
+- [next] Exemplar growth: Odoo (domain chunks) or Frappe — library breadth is
+  the expertise backbone (target: 4-6 across system classes before E1).
+- [next] E1 evaluation: agent rebuilds a library-matched system; score spec
+  fidelity, correctness, token cost vs baseline.
+- [next] Deferred technique upgrades (build on evidence only): skeleton kit
+  (Vue vendored) → cockpit → fidelity tiers → editable skeleton.
 
 ## Untested system classes (spec stubs exist only when marked)
 - [untested] Fleet tracking / management
