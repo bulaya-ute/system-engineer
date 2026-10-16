@@ -69,6 +69,19 @@ modals as in-situ requirement capture**.
   HTML is mechanical, iterations are cheap. Parallel: one skeleton per
   screen-variant if the user wants options.
 
+## Kit v1.1 backlog — PROVEN needs (from the NFC proving run, 2026-10-16)
+
+The growth rule says the kit grows only on real-skeleton evidence; the NFC
+v3 declaration (670 lines, -43% vs hand-written) hit four real gaps:
+1. `sk-select` (dropdown) — filters had to become segmented buttons.
+2. Reusable `sk-modal`/overlay — set-PIN modal is an in-screen card; the
+   cockpit's modal is not reusable.
+3. `sk-money-table` per-row action slot + reversal-label override — per-row
+   refund affordance + "R-103"-labeled reversal link were inexpressible.
+4. `openComment(address)` / declarative `sk-feedback-button` — dedicated [?]
+   controls became inert buttons (inspect mode still makes them commentable).
+Build v1.1 when the next skeleton or session needs them (or on owner go).
+
 ## Promotion record (2026-10-16, owner "go")
 
 **Kit v1 + session cockpit: PROMOTED from deferred → building.** Evidence bar
