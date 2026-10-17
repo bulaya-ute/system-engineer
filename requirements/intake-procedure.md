@@ -17,6 +17,9 @@ and team builds.
 
 ## Recording (the part that makes it a system)
 
+- **Provenance first**: the spec folder records the producing skill version
+  — `skill: vX.Y.Z @<short-commit>` — so an upgrade or downgrade can tell
+  what machinery the spec assumed (`../VERSIONING.md`).
 - Answer lands **directly as a `requirements.csv` row**:
   `id, requirement, rationale, source:user, status:accepted, verification…` —
   not in chat, not in a doc that drifts.
