@@ -4,6 +4,15 @@ Terse, per release — what a resumed build would do differently. The board
 (`development-state.md`) holds the full history; this file holds the
 released states.
 
+## v0.2.1 — 2026-10-17
+
+**Fixed**
+- S-4 playbook expanded (`scenarios.md`): understand-first rule (full flow +
+  intended behaviour before proposing); enumerated rebuild strategies
+  (full · front-end only · component-scoped · patch-in-place);
+  maintenance-economics rule — patching poor code is often the expensive
+  path; decide on economics, not purity.
+
 ## v0.2.0 — 2026-10-17
 
 Design lock + X0: the skill becomes a front door over an expertise tree.

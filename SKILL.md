@@ -86,5 +86,5 @@ information through the right channel.
 
 ## Version
 
-`0.2.0` — canonical in `VERSION`; releases, upgrade/downgrade and
+`0.2.1` — canonical in `VERSION`; releases, upgrade/downgrade and
 compatibility promises in `VERSIONING.md` (what changed: `CHANGELOG.md`).
