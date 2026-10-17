@@ -72,6 +72,24 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   record provenance (`skill: vX.Y.Z @commit`) at intake. First tag: v0.1.0.
   Open question Q-C: the 1.0 gate.
 
+- [built] Design lock (owner, 2026-10-17): thin front door over an expertise
+  tree — `requirements-gathering`, `spec-standard`, `spec-authoring`
+  (forward/reverse/assess + exemplar corpus), `system-architecture`,
+  `spec-to-system` (attempt ledger folded in), `construction-overseer`,
+  `practices`, + existing `ui-ux-audit`; tracking + scenarios stay core.
+  Rulings: requirements doc ≠ spec · compliance stamp gates construction ·
+  question channel skill → chief engineer → human · practices two-layer
+  (central + skill-local, owner practices scope-tagged) · falsification
+  records everywhere · rebuild-strategy = joint advisory, owner decides ·
+  spec-authoring = one skill, three modes.
+
+- [built] X0 — core encoded (2026-10-17): `DEPENDENCIES.md` (tree, types,
+  absence behavior, load protocol, advertisement policy, transition map) ·
+  `tracking.md` (artifacts, issues, truth reconciliation) · `scenarios.md`
+  (S-1…S-11) · honesty charter (falsification records) + loop restructure
+  in SKILL.md · `techniques/usage-capture.md` (planned, deferred). Release
+  v0.2.0; extraction queue X1–X7 in Next.
+
 ## Owner direction (2026-10-16)
 
 Focus = the skill's core: **AI-model software-engineer expertise first.**
@@ -82,7 +100,12 @@ on session evidence, not endpoint shine.
 
 ## Where we are (halt point, 2026-10-17)
 
-- **Frontmatter + right-sizing shipped this halt**: `7b95b53` (SKILL.md
+- **Skill tree locked; X0 encoded; release v0.2.0** (this halt): the design
+  session's ruling set is captured in `DEPENDENCIES.md` + the board; core
+  carries tracking + scenarios + the honesty charter. Next encoding:
+  **X1 `spec-standard`** (extraction; validator + compliance-stamp
+  definition). Parked policies: Q-D.
+- **Frontmatter + right-sizing shipped** (earlier today): `7b95b53` (SKILL.md
   frontmatter — repo parses as a skill in skill-aware harnesses; install =
   register as a skill source; not installed anywhere yet), `2addad3` +
   `c2272e7` (right-sizing — three scales, machinery matrix, movement rules,
@@ -116,6 +139,12 @@ on session evidence, not endpoint shine.
   (spec v0+session folds at nfc-loyalty-docs/spec); skeleton v2 session with
   owner; then phase plan (.NET 8 + Postgres + React) → multi-agent build →
   critique → record. This build IS the core exercise.
+- [next] Encoding queue (design locked 2026-10-17): **X1 `spec-standard`**
+  → X2 `requirements-gathering` → X3 `system-architecture` → X4
+  `spec-authoring` (absorbs `library/`) → X5 `spec-to-system` (+ ledger)
+  → X6 `construction-overseer` → X7 `practices`. Move-not-copy, history via
+  subtree, standard skeleton per repo, pointers updated here. One repo per
+  session; foundations first.
 - [next] Exemplar growth: Odoo (domain chunks) or Frappe — library breadth is
   the expertise backbone (target: 4-6 across system classes before E1).
 - [postponed, owner 2026-10-16] E1 evaluation — FULL EXPERIMENT DESIGN at
@@ -125,6 +154,10 @@ on session evidence, not endpoint shine.
   start without owner go.
 - [next] Deferred technique upgrades (build on evidence only): skeleton kit
   (Vue vendored) → cockpit → fidelity tiers → editable skeleton.
+- [deferred, planning/discussion] Human-learning telemetry — "testing
+  state" usage capture (screenshots + interactions → learn real user
+  flows). Note: `requirements/techniques/usage-capture.md`. Owner go
+  required before any build; consent rules apply.
 
 ## Untested system classes (spec stubs exist only when marked)
 - [untested] Fleet tracking / management
@@ -157,3 +190,7 @@ on session evidence, not endpoint shine.
   library passes ~50 KB of spec text? Lean: later, keep text-first.
 - Q-C: v1.0 gate — when does 0.x end? Lean: after the NFC first real loop
   completes and E4 has evidence (recorded in `VERSIONING.md`).
+- Q-D: parked policy leans (confirm, or provide a counter): advertisement
+  (infra hidden via `autoinvoke:false`, user-facing advertised), new-repo
+  visibility (lean public MIT), compliance-stamp override (lean: owner can
+  override, recorded). Recorded in `DEPENDENCIES.md`.
