@@ -10,4 +10,13 @@ A skill that designs, builds, critiques, and remembers whole systems — for AI 
 
 Public. No private/proprietary project content belongs here — exemplars are open-source systems (Snipe-IT, Odoo, Frappe…) and generic system classes.
 
+## Install & versioning
+
+- **Install** — clone this repo and register it as a skill source (junction
+  or `skills` config entry); `SKILL.md` at the root is the entry point.
+- **Upgrade** — `git pull`; **pin/downgrade** — `git checkout vX.Y.Z`.
+- **Current version** — see [`VERSION`](VERSION); release notes in
+  [`CHANGELOG.md`](CHANGELOG.md); promises and playbook in
+  [`VERSIONING.md`](VERSIONING.md).
+
 Status: see [`development-state.md`](development-state.md). Related skill: [bulaya-ute/ui-ux-audit](https://github.com/bulaya-ute/ui-ux-audit).

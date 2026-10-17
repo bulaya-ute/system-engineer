@@ -69,3 +69,8 @@ authority).
 See `orchestration/awareness.md` — reporting lines, busy-manager handling,
 batching vs interrupting, meeting requests, and how to ask for missing
 information through the right channel.
+
+## Version
+
+`0.1.0` — canonical in `VERSION`; releases, upgrade/downgrade and
+compatibility promises in `VERSIONING.md` (what changed: `CHANGELOG.md`).
