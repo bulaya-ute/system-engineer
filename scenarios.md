@@ -21,6 +21,27 @@ and the gates. Scenarios update `tracking.md` as they run; scale
 \* construction-overseer only when scale = team; solo runs the phase table
 direct. † ui-ux-audit on UI-bearing builds; verification always.
 
+## S-4 playbook — incomplete-system completion
+
+Given a system left incomplete (brownfield). **First move, always:
+understand before proposing** — its full flow and intended behaviour, so the
+assessment critiques reality, not assumptions.
+
+1. **Understand** — reverse-spec: flows, intended behaviour, where it stops
+   making sense.
+2. **Assess** — gap report: how incomplete, where; code-quality and
+   architecture signals.
+3. **Re-gather** — requirements round two: reconstruct core requirements
+   (system + owner), confirm how it *should* behave (requirements doc vN).
+4. **Spec** — forward mode → compliant spec (stamped).
+5. **Rebuild strategy** — propose one of: **full rebuild** · **front-end
+   only** · **component-scoped** · **patch-in-place**. Advisory:
+   system-architecture reads structure/quality, construction-overseer reads
+   economics. Rule: **decide on maintenance economics, not purity** —
+   patching poor code is often the expensive path long-term. Owner decides;
+   recorded in `decisions.csv`.
+6. **Usual pipeline** — S-1 steps from the stamped spec.
+
 ## Scenario protocol
 
 - Declare the scenario at session start, like the scale: state it, route it.
