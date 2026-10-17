@@ -55,6 +55,15 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   parses as a skill in skill-aware harnesses (OpenCode V2 / Claude Code
   format); install step = register the clone as a skill source.
 
+- [built] Right-sizing (owner green-light, 2026-10-17):
+  `orchestration/right-sizing.md` — three scales (one-shot / solo lane /
+  team build), entry criteria, machinery matrix, movement rules (promote
+  immediately, trim at phase boundaries, retro-intake), evidence floor
+  ("scale trims coordination, never evidence"). SKILL.md core-loop step 0;
+  scale gates on roles / awareness / branch-registry / spawn-profiles /
+  observations + intake pointer. Default when ambiguous: solo lane.
+  Unexercised on a real build — see E4.
+
 ## Owner direction (2026-10-16)
 
 Focus = the skill's core: **AI-model software-engineer expertise first.**
@@ -110,6 +119,9 @@ on session evidence, not endpoint shine.
   score = spec fidelity, correctness, token cost vs baseline.
 - [untested] E2: adjacent-to-library builds (the untested classes above).
 - [untested] E3: far-from-library build (stress test of intake + planning).
+- [untested] E4: right-sizing exercise — real builds run at a declared scale;
+  at least one promotion (one-shot→solo or solo→team) validated, with
+  retro-intake cost checked against what it saved.
 
 ## Policy reminders
 - **No private projects in this repo, ever** (no LusakaRide or other
