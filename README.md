@@ -19,4 +19,10 @@ Public. No private/proprietary project content belongs here — exemplars are op
   [`CHANGELOG.md`](CHANGELOG.md); promises and playbook in
   [`VERSIONING.md`](VERSIONING.md).
 
+## Dependencies
+
+The skill tree — hard/soft dependencies, absence behavior, and the
+in-repo ↔ skill transition map (extractions X1–X7): see
+[`DEPENDENCIES.md`](DEPENDENCIES.md).
+
 Status: see [`development-state.md`](development-state.md). Related skill: [bulaya-ute/ui-ux-audit](https://github.com/bulaya-ute/ui-ux-audit).
