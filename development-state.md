@@ -51,6 +51,10 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   attempt ledger, tooling-artifact scope carve-out, manager .gitignore duty,
   token-measurement limitation. See `evaluation/runs/dry-run-1.md`.
 
+- [built] SKILL.md frontmatter (name + description + license) — the repo
+  parses as a skill in skill-aware harnesses (OpenCode V2 / Claude Code
+  format); install step = register the clone as a skill source.
+
 ## Owner direction (2026-10-16)
 
 Focus = the skill's core: **AI-model software-engineer expertise first.**

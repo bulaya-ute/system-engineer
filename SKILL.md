@@ -1,3 +1,9 @@
+---
+name: system-engineer
+description: Designs, builds, critiques, and remembers whole software systems: requirements intake, spec tables, exemplar matching from a solved-systems library, multi-agent orchestration, and evidence-gated critique. Use when starting, resuming, or auditing a system build, or when the user asks to design, plan, or build a software system.
+license: MIT
+---
+
 # SKILL.md — operating manual (v0)
 
 ## Identity
