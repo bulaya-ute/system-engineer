@@ -1,5 +1,8 @@
 # Spawn profiles — task-class → model tier + brief template
 
+Scale gate: **team build**; one carve-out — a solo lane may spawn a read-only
+critique (it verifies, it doesn't promote the build — `right-sizing.md`).
+
 Multi-model dispatch: when multiple models are available, task class decides
 the tier. The brief is always the contract — a cheap model with a precise
 brief beats a strong model guessing.

@@ -1,5 +1,8 @@
 # Roles, hierarchy, and scope
 
+Scale gate: **team build** only — solo lanes need no hierarchy; one-shots
+need no machinery (`right-sizing.md`).
+
 ## Hierarchy
 
 ```

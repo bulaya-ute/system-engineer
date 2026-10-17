@@ -1,5 +1,9 @@
 # Intake procedure — how requirements gathering runs
 
+Scale check first: one-shot intake shrinks to intent + acceptance
+(`../orchestration/right-sizing.md`); this procedure governs solo lanes
+and team builds.
+
 ## Session shape
 
 1. **Manager (or delegated intake agent) runs the bank** (`question-bank.md`):

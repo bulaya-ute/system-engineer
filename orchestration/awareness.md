@@ -1,5 +1,8 @@
 # Awareness — reporting, busy managers, meetings, missing information
 
+Scale gate: **team build** (reporting *between agents*); solo lanes and
+one-shots report straight to the owner (`right-sizing.md`).
+
 ## Reporting cadence
 
 - **Blockers interrupt immediately** (manager's attention is warranted).

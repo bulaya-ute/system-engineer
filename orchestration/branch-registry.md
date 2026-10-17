@@ -1,5 +1,8 @@
 # Branch registry — checkout coordination for shared working trees
 
+Scale gate: **team build** — shared trees are the reason this exists; solo
+lanes use `att/` branches without registry ceremony (`right-sizing.md`).
+
 Table of declared checkout intents on shared repos. **No agent switches a
 shared working tree without a row here + acks (or manager arbitration).**
 

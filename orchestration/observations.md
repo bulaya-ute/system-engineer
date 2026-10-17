@@ -1,5 +1,10 @@
 # Observations — per-agent records + the shared catalog
 
+Scale note: team = `agents/<id>/observations.csv` (below); solo = one
+`observations.csv` in the spec folder; one-shot = informal — only repeatable
+lessons surface, as KB candidates. The catalog below applies at every scale
+(`right-sizing.md`).
+
 ## Per-agent recording (mandatory)
 
 Every agent records observations in **its own** memory folder,
