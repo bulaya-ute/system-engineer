@@ -64,6 +64,14 @@ Convention: `[built]` done · `[wip]` in progress · `[next]` queued ·
   observations + intake pointer. Default when ambiguous: solo lane.
   Unexercised on a real build — see E4.
 
+- [built] Version management (owner green-light, 2026-10-17):
+  `VERSION` 0.1.0 + `CHANGELOG.md` (backfilled: batches 1–5 + today) +
+  `VERSIONING.md` — bump rule, release process, upgrade/downgrade playbook,
+  compatibility promises (IDs forever · additive formats · forward-only
+  history · visible mismatches · process moves, data doesn't). Spec folders
+  record provenance (`skill: vX.Y.Z @commit`) at intake. First tag: v0.1.0.
+  Open question Q-C: the 1.0 gate.
+
 ## Owner direction (2026-10-16)
 
 Focus = the skill's core: **AI-model software-engineer expertise first.**
@@ -81,6 +89,12 @@ on session evidence, not endpoint shine.
   evidence floor; SKILL.md step 0 + scale gates), `1c82b6d` (board + E4).
   **The scale model is untested — E4 is its exercise ticket**; next real
   build declares its scale.
+- **Version management shipped — `v0.1.0`** (tag after this board commit):
+  `VERSIONING.md` defines releases (MINOR = machinery halt, PATCH = fixes),
+  upgrade/downgrade (`git pull` / `git checkout vX.Y.Z`), and the five
+  compatibility promises; spec folders record their producing version.
+  Release process: bump `VERSION` + SKILL.md footer + CHANGELOG at each
+  halt consolidation.
 - **NFC order-wallet project (first real loop) — SESSION OPEN** (carried):
   spec v0 + session folds in `nfc-loyalty-docs/spec/` (requirements.csv
   13 rows, open-questions OQ-02/03/04 live, skeleton brief, v3 declaration).
@@ -141,3 +155,5 @@ on session evidence, not endpoint shine.
   Lean: Snipe-IT first (digestible), Odoo as domain chunks later.
 - Q-B: SQLite layer for the library — introduce at exemplar #1 or when the
   library passes ~50 KB of spec text? Lean: later, keep text-first.
+- Q-C: v1.0 gate — when does 0.x end? Lean: after the NFC first real loop
+  completes and E4 has evidence (recorded in `VERSIONING.md`).
