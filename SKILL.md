@@ -16,6 +16,10 @@ authority).
 
 ## Core loop
 
+0. **Scale** — declare the build's operating scale: one-shot, solo lane, or
+   team build (`orchestration/right-sizing.md`). The scale decides which
+   machinery applies; it never decides how much evidence is required.
+   Ambiguous → solo lane.
 1. **Intake** — run the requirements question bank (`requirements/question-bank.md`),
    record answers in the spec tables (`requirements/spec-template.md`).
 2. **Match** — check the library (`library/`) for a similar solved system.
