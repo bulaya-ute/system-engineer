@@ -72,24 +72,30 @@ editable skeleton) are DESIGNED + DOCUMENTED (`techniques/
 interactive-skeleton.md` "Planned upgrades") but DEFERRED — build each only
 on session evidence, not endpoint shine.
 
-## Where we are (halt point, 2026-10-16)
+## Where we are (halt point, 2026-10-17)
 
-- **Skeleton technique is materially upgraded**: skeleton-kit v1 (Vue
-  vendored) + session cockpit + shell v2 all shipped, 194 in-repo
-  assertions green (verify/), real-browser render verified each step.
-  Kitty styling rule locked: chrome styled, preview functionally colored
-  (faint table row lines — owner preference).
-- **NFC order-wallet project (first real loop) — SESSION OPEN**:
+- **Frontmatter + right-sizing shipped this halt**: `7b95b53` (SKILL.md
+  frontmatter — repo parses as a skill in skill-aware harnesses; install =
+  register as a skill source; not installed anywhere yet), `2addad3` +
+  `c2272e7` (right-sizing — three scales, machinery matrix, movement rules,
+  evidence floor; SKILL.md step 0 + scale gates), `1c82b6d` (board + E4).
+  **The scale model is untested — E4 is its exercise ticket**; next real
+  build declares its scale.
+- **NFC order-wallet project (first real loop) — SESSION OPEN** (carried):
   spec v0 + session folds in `nfc-loyalty-docs/spec/` (requirements.csv
   13 rows, open-questions OQ-02/03/04 live, skeleton brief, v3 declaration).
-  The owner's interactive-skeleton session is LIVE (skeleton served at
-  localhost:4322 + phone; inspect-mode cockpit). Feedback notes pending
-  fold-back; then: phase plan (.NET 8 + Postgres + React) → build →
-  critique → record. OQ-04 (counter pinpad vs phone-push) unanswered.
+  Owner's interactive-skeleton session live (localhost:4322 + phone;
+  inspect-mode cockpit). Feedback notes pending fold-back; then: phase plan
+  (.NET 8 + Postgres + React) → build → critique → record. OQ-04
+  (counter pinpad vs phone-push) unanswered. On resume: declare the scale
+  (likely team build) — starts E4 evidence.
+- **Skeleton technique (carried)**: kit v1 + cockpit + shell v2 shipped,
+  194 assertions green; kitty styling rule locked (chrome styled, preview
+  functionally colored — faint table row lines, owner preference). Kit
+  v1.1 backlog (proven needs): sk-select, reusable sk-modal, money-table
+  per-row actions, openComment()/sk-feedback-button.
 - **E1 "AssetYard"**: fully designed (`evaluation/e1-assetyard.md`),
   owner-POSTPONED.
-- Kit v1.1 backlog (proven needs): sk-select, reusable sk-modal,
-  money-table per-row actions, openComment()/sk-feedback-button.
 
 ## Next (in order)
 - [next] NFC order-wallet project (FIRST REAL LOOP, in flight): intake done
